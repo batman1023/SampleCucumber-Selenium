@@ -12,10 +12,11 @@ import java.io.IOException;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/features",
-        glue="stepDefinition",
+        glue="stepDefinition", //glue
         stepNotifications = true,
         dryRun = false,
         monochrome = true,
+    /*    tags = "@BackPack",*/
         plugin = {"pretty","html:target/reportHTML"}
 )
 

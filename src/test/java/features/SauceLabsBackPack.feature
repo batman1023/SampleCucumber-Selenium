@@ -1,6 +1,6 @@
 Feature: SauceLab Backpack
-
-
+#
+  @BackPack
   Scenario: Login to Sauce Lab
     Given I am on SauceLabs login page
     When I enter username "standard_user"
@@ -8,6 +8,8 @@ Feature: SauceLab Backpack
     When I click on login button
     Then I am taken to SauceLabs Home Page
 
+
+  @BackPack
   Scenario: Selecting SauceLab Backpack
     Given I am on SauceLabs HomePage
     And BackPage is available on HomePage

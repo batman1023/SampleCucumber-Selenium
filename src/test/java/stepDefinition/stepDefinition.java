@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import base.Base;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,30 +18,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 
-public class stepDefinition {
+public class stepDefinition extends Base {
     public static WebDriver driver;
-
-
 
     @Given("^I am on SauceLabs login page$")
     public void i_am_on_saucelabs_login_page() throws Throwable {
             System.out.println("I am ON LOGIN PAGE");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Owner\\Documents\\chromedriver\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("https://www.saucedemo.com/");
-
+            driver = Base.getDriver();
+            driver.get("https://www.saucedemo.com/");
             driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]")).getText();
-
-
-
-
 
     }
 
     @Given("^I am on SauceLabs HomePage$")
     public void i_am_on_saucelabs_homepage() throws Throwable {
-        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]")).getText();
-        System.out.println("I am at login page");
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//span[contains(text(),'Products')]")).getText();
+        System.out.println("I am at Home page");
     }
 
     @When("^I enter username \"([^\"]*)\"$")
@@ -63,7 +57,8 @@ public class stepDefinition {
 
     @Then("^I am taken to SauceLabs Home Page$")
     public void i_am_taken_to_saucelabs_home_page() throws Throwable {
-        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]")).getText();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//span[contains(text(),'Products')]")).getText();
         System.out.println("I am now on Home Page");
     }
 
@@ -104,8 +99,8 @@ public class stepDefinition {
         driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]")).getText();
 
     }
-    @Then("I close the browser")
+    @And("I close the browser")
     public void i_close_the_browser() {
-    driver.quit();
+    driver.quit(); //close driver
     }
 }
