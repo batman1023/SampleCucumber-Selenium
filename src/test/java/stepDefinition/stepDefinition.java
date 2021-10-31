@@ -12,13 +12,20 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Calendar;
 
 
 @RunWith(Cucumber.class)
 
 
 
-public class stepDefinition extends Base {
+public class stepDefinition  {
     public static WebDriver driver;
 
     @Given("^I am on SauceLabs login page$")
@@ -100,9 +107,44 @@ public class stepDefinition extends Base {
 
     }
     @And("I close the browser")
-    public void i_close_the_browser() {
+    public void i_close_the_browser() throws IOException, InterruptedException {
+
+        boolean flag = false;
+
+        Runtime runtime = Runtime.getRuntime();
+        runtime.exec("cmd /c start dockerdown.bat");
+        Thread.sleep(5000);
 
 
+        String file = "output.txt";
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MINUTE, 5);
+        long stopnow = cal.getTimeInMillis();
+
+        while (System.currentTimeMillis() < stopnow) {
+            if (flag) {
+                break;
+            }
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String currenLine = reader.readLine();
+
+            while (currenLine != null && !flag) {
+                if (currenLine.contains("exited with code 143")) {
+                    System.out.println("Docker shutdown Complete");
+                    Thread.sleep(5000);
+                    flag = true;
+                    break;
+                }
+                currenLine = reader.readLine();
+            }
+            reader.close();
+        }
+        Assert.assertTrue(flag);
+        Thread.sleep(2000);
+        File delfile = new File("output.txt");
+        if (delfile.delete()){
+            System.out.println("Output File Deleted Successfully");
+        }
 
 
         //driver.quit(); //close driver
