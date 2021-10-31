@@ -1,0 +1,44 @@
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" -Dcucumberoptions=classpath:features org.junit.runner.JUnitCore com.runner.TestRunner
+
+
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" -DcucumberOptions="classpath:features" org.junit.runner.JUnitCore com.runner.TestRunner
+
+
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" -Dcucumberoptions org.junit.runner.JUnitCore com.runner.TestRunner
+
+
+
+https://stackoverflow.com/questions/37282285/intellij-cannot-find-any-declarations
+java -cp "selenium-docker-tests.jar;libs/*" -Dcucumberoptions="classpath:features" org.junit.runner.JUnitCore com.runner.TestRunner
+
+
+
+java -cp "selenium-docker.jar:selenium-docker-tests.jar:libs/*" -Dcucumberoptions=classpath:features org.junit.runner.JUnitCore com.runner.TestRunner
+
+
+
+
+
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" -DcucumberOptions="classpath:features" org.junit.runner.JUnitCore com.runner.TestRunner
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" -Dcucumberoptions="classpath:features" org.junit.runner.JUnitCore com.runner.TestRunner
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" -Dcucumberoptions=classpath:features org.junit.runner.JUnitCore com.runner.TestRunner
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" -Dcucumberoptions org.junit.runner.JUnitCore com.runner.TestRunner
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" -Dcucumberoptions=classpath=features org.junit.runner.JUnitCore com.runner.TestRunner
+
+
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" -Dcucumberoptions="classpath:features" org.testng.TestNG -testclass com.runner.TestRunner
+
+
+java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* -DcucumberOptions="classpath:features" org.testng.TestNG -testclass com.runner.TestRunner
+
+
+
+
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" org.testng.TestNG -testclass com.runner.TestRunner
+
+
+
+
+
+java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* -Dcucumberoptions="classpath:features" org.testng.TestNG -testclass com.runner.TestRunner
+java -cp "selenium-docker.jar;selenium-docker-tests.jar;libs/*" -Dcucumberoptions org.testng.TestNG -testclass com.runner.TestRunner

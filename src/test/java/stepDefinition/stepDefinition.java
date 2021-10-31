@@ -101,6 +101,10 @@ public class stepDefinition extends Base {
     }
     @And("I close the browser")
     public void i_close_the_browser() {
-    driver.quit(); //close driver
+
+
+
+
+        //driver.quit(); //close driver
     }
 }

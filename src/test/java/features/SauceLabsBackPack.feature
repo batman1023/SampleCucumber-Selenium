@@ -15,4 +15,4 @@ Feature: SauceLab Backpack
     And BackPage is available on HomePage
     When I click on SauceLabs BackPack
     Then I am taken to Sauce Labs Backpack page
-    And I close the browser
+    #And I close the browser
